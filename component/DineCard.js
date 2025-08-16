@@ -21,7 +21,7 @@ export default function DineCard({RestData}){
         </div>
 
 
-        {/* 2nd div */}
+        {/* 2nd div */} 
         <div className="p-1">
             {/* area and distance */}
             <div>

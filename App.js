@@ -1,28 +1,38 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./component/Header";
-import Foodoption from "./component/Foodoption";
-import GroceryOption from "./component/GroceryOption";
-import DineOption from "./component/DineOption";
-import Scanner from "./component/Scanner";
-import Footer from "./component/Footer";
-
+import Home from "./component/Home";
+import Restaurant from "./component/Restaurant"
+import { BrowserRouter, Routes, Route } from "react-router";
+import RestaurantMenu from "./component/RestaurantMenu";
+import SearchFood from "./component/SearchFood";
+import SecondaryHome from "./component/SecondaryHome";
+import { store } from "./Stored/stores";
+import {Provider} from "react-redux"
+import Checkout from "./component/Checkout";
 
 
 
 function App(){
-
+    
     return(
-        <>
-        <Header></Header>
-        <Foodoption></Foodoption>
-        <GroceryOption></GroceryOption>
-        <DineOption></DineOption>
-        <Scanner></Scanner>
-        <Footer></Footer>
-        </>
+       <>
+       <Provider store={store}>
+       <BrowserRouter>
+       <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route element={<SecondaryHome></SecondaryHome>}>
+        <Route path="/restaurant" element={<Restaurant></Restaurant>}></Route>
+        <Route path="/city/delhi/:id" element={<RestaurantMenu></RestaurantMenu>}></Route>
+        <Route path="/city/delhi/:id/search" element={<SearchFood></SearchFood>}></Route>
+        </Route>
+        <Route path="/Checkout" element={<Checkout></Checkout>}></Route>
+       </Routes>
+       </BrowserRouter>
+       </Provider>
+       </>
     )
-
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App></App>);
+
+

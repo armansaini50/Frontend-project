@@ -1,4 +1,4 @@
-import { imageGridCards } from "../utils/FoodData";
+import { imageGridCards } from "../Utils/foodData";
 import FoodCard from "./FoodCard";
 
 export default function Foodoption(){
